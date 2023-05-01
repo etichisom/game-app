@@ -19,10 +19,10 @@ const GameCard = (props: Props) => {
     <Card borderRadius={"10px"} overflow="hidden">
       <Image src={props.game.background_image}></Image>
       <CardBody>
-        <Heading fontSize={"1xl"}>{props.game.name}</Heading>
+        <Heading fontSize={"25px"}>{props.game.name}</Heading>
         <HStack justifyContent={"space-between"} paddingTop="10px">
           <PlatFormIcon platform={props.game.parent_platforms} />
-          <Badge color={"green.100"}>{props.game.metacritic}</Badge>
+          <Badge color={"green.500"}>{props.game.metacritic}</Badge>
         </HStack>
       </CardBody>
     </Card>
