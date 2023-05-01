@@ -13,7 +13,9 @@ const PlatFormSelector = (props:Props) => {
     </MenuButton>
     <MenuList>
       {data.map((e,index)=>(
-        <MenuItem key={index}>{e.name}</MenuItem>
+        <MenuItem key={index} onClick={()=>{
+            props.onSelect(e.id.toString());
+        }}>{e.name}</MenuItem>
       ))}
     </MenuList>
   </Menu>

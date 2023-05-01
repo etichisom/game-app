@@ -3,7 +3,7 @@ import React from "react";
 import useGenres from "../hooks/useGenres";
 interface Props{
   onSelect:(genres:string)=>void,
-  seletedGenre:string
+  seletedGenre:string,
 }
 const GenresList = (props:Props) => {
   const { data, error, loading } = useGenres();

@@ -8,17 +8,15 @@ import GameCard from "./GameCard";
 import GameCardSkeleTon from "./GameCardSkelton";
 import PlatFormSelector from "./PlatFormSelector";
 interface Props{
-  genres:string
+  genres:string,
+  platformId:string
 }
 const GameGrid = (props:Props) => {
-  const { data, error, loading } = useGames(props.genres);
+  const { data, error, loading } = useGames(props.genres,props.platformId);
   const load = [1, 2, 3, 3, 3,4];
   return (
     <>
-    <PlatFormSelector onSelect={(e)=>{
-      
-    }}/>
-      {error.length > 0 && <Text>{error}</Text>}
+   {error.length > 0 && <Text>{error}</Text>}
       <SimpleGrid minChildWidth="300px" spacing="40px" padding={"20px"}>
         {loading && load.map((e,index)=>(
           <GameCardSkeleTon key={index}/>
