@@ -1,12 +1,11 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
-import ColorModeSwitch from "./component/ColorModeSwitch";
 import GameGrid from "./component/GameGrid";
 import GenresList from "./component/GenresList";
 import NavBar from "./component/Navbar";
 
 function App() {
-  const [genres, setGenres] = useState("puzzle");
+  const [genres, setGenres] = useState("action");
   return (
     <Grid
       templateAreas={{
@@ -27,6 +26,7 @@ function App() {
             onSelect={(e) => {
               setGenres(e);
             }}
+            seletedGenre={genres}
           />
         </GridItem>
       </Show>
