@@ -26,11 +26,11 @@ const GameCard = (props: Props) => {
     <Card borderRadius={"10px"} overflow="hidden">
       <Image src={imageLink(props.game.background_image)} height={200}></Image>
       <CardBody>
-        <Heading fontSize={"25px"}>{props.game.name}</Heading>
-        <HStack justifyContent={"space-between"} paddingTop="10px">
+        <HStack justifyContent={"space-between"} paddingBottom="10px" >
           <PlatFormIcon platform={props.game.parent_platforms} />
           <Badge color={"green.500"}>{props.game.metacritic}</Badge>
         </HStack>
+        <Heading fontSize={"25px"}>{props.game.name}</Heading>
       </CardBody>
     </Card>
   );

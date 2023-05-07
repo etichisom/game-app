@@ -7,24 +7,27 @@ import apiClient from "../services/api-client";
 import GameCard from "./GameCard";
 import GameCardSkeleTon from "./GameCardSkelton";
 import PlatFormSelector from "./PlatFormSelector";
-interface Props{
-  genres:string,
-  platformId:string,
-  sortBy:string
+interface Props {
+  genres: string;
+  platformId: string;
+  sortBy: string;
+  search: string;
 }
-const GameGrid = (props:Props) => {
-  const { data, error, loading } = useGames(props.genres,props.platformId,props.sortBy);
-  const load = [1, 2, 3, 3, 3,4];
+const GameGrid = (props: Props) => {
+  const { data, error, loading } = useGames(
+    props.genres,
+    props.platformId,
+    props.sortBy,
+    props.search
+  );
+  const load = [1, 2, 3, 3, 3, 4];
   return (
     <>
-   {error.length > 0 && <Text>{error}</Text>}
+      {error.length > 0 && <Text>{error}</Text>}
       <SimpleGrid minChildWidth="300px" spacing="40px" padding={"20px"}>
-        {loading && load.map((e,index)=>(
-          <GameCardSkeleTon key={index}/>
-        ))}
-        {loading ==false&&data.map((e, index) => (
-          <GameCard game={e} key={index} />
-        ))}
+        {loading && load.map((e, index) => <GameCardSkeleTon key={index} />)}
+        {loading == false &&
+          data.map((e, index) => <GameCard game={e} key={index} />)}
       </SimpleGrid>
     </>
   );
