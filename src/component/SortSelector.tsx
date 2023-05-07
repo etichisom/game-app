@@ -1,23 +1,29 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import usePlatform from "../hooks/usePlatform";
 interface Props {
   onSelect: (e: string) => void;
+  currentSort:string
 }
-const PlatFormSelector = (props: Props) => {
-  const { data, error, loading } = usePlatform();
+
+const SortSelector = (props: Props) => {
+  const sort = [
+    { name: "Relevance", value: "metacritic" },
+    { name: "Date added", value: "added" },
+    { name: "Release Data", value: "created" },
+    { name: "Rating", value: "rating" },
+  ];
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-        Platforms
+        Order By: {props.currentSort}
       </MenuButton>
       <MenuList>
-        {data.map((e, index) => (
+        {sort.map((e, index) => (
           <MenuItem
-            key={index}
             onClick={() => {
-              props.onSelect(e.id.toString());
+              props.onSelect(e.value);
             }}
+            key={index}
           >
             {e.name}
           </MenuItem>
@@ -27,4 +33,4 @@ const PlatFormSelector = (props: Props) => {
   );
 };
 
-export default PlatFormSelector;
+export default SortSelector;

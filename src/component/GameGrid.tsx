@@ -9,10 +9,11 @@ import GameCardSkeleTon from "./GameCardSkelton";
 import PlatFormSelector from "./PlatFormSelector";
 interface Props{
   genres:string,
-  platformId:string
+  platformId:string,
+  sortBy:string
 }
 const GameGrid = (props:Props) => {
-  const { data, error, loading } = useGames(props.genres,props.platformId);
+  const { data, error, loading } = useGames(props.genres,props.platformId,props.sortBy);
   const load = [1, 2, 3, 3, 3,4];
   return (
     <>
